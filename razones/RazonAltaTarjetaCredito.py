@@ -10,3 +10,4 @@ class RazonAltaTarjetaCredito(Razon):
         if cliente.cuenta.total_tarjetas_credito<(evento.totalTarjetasDeCreditoActualmente+1):
             return "Tiene el maximo de tarjetas de credito permitidas"
         
+        return "No se pudo determinar la causa de rechazo"

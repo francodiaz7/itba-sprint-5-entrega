@@ -9,3 +9,5 @@ class RazonCompraDolar(Razon):
 
         if evento.monto>evento.saldoEnCuenta:
             return "Saldo Insuficiente para comprar los dolares"
+        
+        return "No se pudo determinar la causa de rechazo"

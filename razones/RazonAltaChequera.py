@@ -9,3 +9,5 @@ class RazonAltaChequera(Razon):
         
         if cliente.cuenta.total_chequeras<(evento.totalChequerasActualemente+1):
             return "Tiene el maximo de cheuqueras permitidas"
+        
+        return "No se pudo determinar la causa de rechazo"
