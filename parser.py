@@ -1,4 +1,5 @@
 import json
+from math import inf
 from datos_tipo_cliente.cliente_black import ClienteBlack
 from datos_tipo_cliente.cliente_gold import ClienteGold
 from datos_tipo_cliente.cliente_classic import ClienteClassic
@@ -7,23 +8,36 @@ from datos_tipo_cliente.cliente import Cliente
 from evento import Evento
 
 class Parser(object):
-    def ejecutar(self, nombre_archivo: str) -> tuple[Cliente, 'list[Evento]']:
+    def ejecutar(self, nombre_archivo: str) -> tuple[Cliente,'list[Evento]']:
         #Crea una lista vacía donde van a ir las operaciones que se realicen
-        operaciones = []
+        transacciones = []
         with open (nombre_archivo) as jsonFile:
             eventos = json.load(jsonFile)
             cliente = self.analizarCliente(eventos)
-            for operacion in operaciones:
-                operaciones.append(Evento(**operacion))
-        return cliente, operaciones
+            for tr in transacciones:
+                transacciones.append(Evento(**tr))
+        return cliente, transacciones
 
-    #Recibe los datos de la clase Cliente
     def analizarCliente(self, datos):
-        #Hay que poner que en otra clase diga el tipo de datos
         tipo = datos['tipo']
-        if tipo == 'classic':
+        if tipo == 'CLASSIC':
             cliente = ClienteClassic
-        elif tipo == 'gold':
+            limite_extraccion_diario = 10000
+            limite_transferencia_recibida = 150000
+            costo_transferencias = 0.1
+            total_tarjetas_credito = 0
+            total_chequeras = 0
+        elif tipo == 'GOLD':
             cliente = ClienteGold
-        elif tipo == 'black':
+            limite_extraccion_diario = 20000
+            limite_transferencia_recibida = 500000
+            costo_transferencias = 0.05
+            total_tarjetas_credito = 1
+            total_chequeras = 1
+        elif tipo == 'BLACK':
             cliente = ClienteBlack
+            limite_extraccion_diario = 100000
+            limite_transferencia_recibida = inf
+            costo_transferencias = 0
+            total_tarjetas_credito = 5
+            total_chequeras = 2

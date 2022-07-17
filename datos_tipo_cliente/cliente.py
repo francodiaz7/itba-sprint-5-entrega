@@ -1,6 +1,5 @@
 from datos_tipo_cliente.direccion import Direccion
-from cuenta import Cuenta
-
+from datos_tipo_cliente.cuenta import Cuenta
 class Cliente(object):
     #El doble asterisco (**, **kwargs) se usa cuando no conoces la cantidad de 
     # argumentos que vas a pasar o si son varios. Recibe un diccionario
@@ -28,8 +27,7 @@ class Cliente(object):
         return False
 
     def comisionTransferencia(self, monto: int):
-        costo_transferencias = 0
-        return monto * costo_transferencias
+        return monto * self.cuenta.costo_transferencias
 
     def autorizacionTransferencia(self):
         return True

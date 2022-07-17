@@ -1,6 +1,3 @@
-'''CREO QUE ESTO NO HACE FALTA'''
-
-
 class Cuenta(object):
     def __init__(self, **cuenta):
         #cuenta.get() para extraer los valores y poder usar **cuenta

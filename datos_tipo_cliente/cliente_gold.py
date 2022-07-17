@@ -18,8 +18,7 @@ class ClienteGold(Cliente):
         return True
 
     def comisionTransferencia(self, monto: int):
-        costo_transferencias = 0.05
-        return monto * costo_transferencias
+        return monto * self.cuenta.costo_transferencias
 
     def autorizacionTransferencia(self):
         return True
