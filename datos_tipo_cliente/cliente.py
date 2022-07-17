@@ -27,6 +27,10 @@ class Cliente(object):
     def tieneCuentaCorriente(self):
         return False
 
-    def comisionTransferencia(self, monto):
-        return monto * self.cuenta.costo_transferencias
+    def comisionTransferencia(self, monto: int):
+        costo_transferencias = 0
+        return monto * costo_transferencias
+
+    def autorizacionTransferencia(self):
+        return True
 
