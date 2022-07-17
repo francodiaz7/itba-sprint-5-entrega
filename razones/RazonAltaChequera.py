@@ -7,5 +7,5 @@ class RazonAltaChequera(Razon):
         if not cliente.puede_crear_chequera():
             return "Al tipo de cliente sin acceso a chequeras"
         
-        if cliente.cuenta.total_tarjetas_credito<(evento.totalChequerasActualemente+1):
+        if cliente.cuenta.total_chequeras<(evento.totalChequerasActualemente+1):
             return "Tiene el maximo de cheuqueras permitidas"

@@ -7,5 +7,6 @@ class RazonAltaTarjetaCredito(Razon):
         if not cliente.puedeTenerTarjetaDeCredito():
             return "Este tipo de cliente no puede tener tarjeta de credito"
         
-        if cliente.cuenta.total_chequeras<(evento.totalTarjetasDeCreditoActualmente+1):
+        if cliente.cuenta.total_tarjetas_credito<(evento.totalTarjetasDeCreditoActualmente+1):
             return "Tiene el maximo de tarjetas de credito permitidas"
+        

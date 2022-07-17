@@ -4,7 +4,7 @@ from evento import Evento
 
 class RazonCompraDolar(Razon):
     def resolver(self, cliente:Cliente,evento:Evento) -> str:
-        if not cliente.puefe_comprar_dolar():
+        if not cliente.puede_comprar_dolar():
             return "Este tipo de cliente no puede comprar dolares"
 
         if evento.monto>evento.saldoEnCuenta:
