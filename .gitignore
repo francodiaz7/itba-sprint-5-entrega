@@ -1,0 +1,13 @@
+intrucciones.txt
+test.py
+__pycache__/buscador_problemas.cpython-310.pyc
+__pycache__/evento.cpython-310.pyc
+__pycache__/parser.cpython-310.pyc
+__pycache__/procesador_html.cpython-310.pyc
+datos_tipo_cliente/__pycache__/cliente_black.cpython-310.pyc
+datos_tipo_cliente/__pycache__/cliente_classic.cpython-310.pyc
+datos_tipo_cliente/__pycache__/cliente_gold.cpython-310.pyc
+datos_tipo_cliente/__pycache__/cliente.cpython-310.pyc
+datos_tipo_cliente/__pycache__/cuenta.cpython-310.pyc
+datos_tipo_cliente/__pycache__/direccion.cpython-310.pyc
+razones/__pycache__/Razon.cpython-310.pyc
