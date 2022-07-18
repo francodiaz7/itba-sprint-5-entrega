@@ -41,3 +41,6 @@ class Parser(object):
             costo_transferencias = 0
             total_tarjetas_credito = 5
             total_chequeras = 2
+
+        cliente.analizarCliente(datos)
+        return cliente

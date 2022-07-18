@@ -1,8 +1,13 @@
 class Evento:
-    def __init__(self, **eventos):
-        self.RETIRO_EFECTIVO_CAJERO_AUTOMATICO = eventos.get('RETIRO_EFECTIVO_CAJERO_AUTOMATICO')
-        self.ALTA_TARJETA_CREDITO = eventos.get('ALTA_TARJETA_CREDITO')
-        self.ALTA_CHEQUERA = eventos.get('ALTA_CHEQUERA')
-        self.COMPRAR_DOLAR = eventos.get('COMPRAR_DOLAR')
-        self.TRANSFERENCIA_ENVIADA = eventos.get('TRANSFERENCIA_ENVIADA')
-        self.TRANSFERENCIA_RECIBIDA = eventos.get('TRANSFERENCIA_RECIBIDA')
+    def gestionarEventos(self, evento):
+        self.estado = evento['estado']
+        self.tipo = evento['tipo']
+        self.cuentaNumero = evento['cuentaNumero']
+        self.cupoDiarioRestante = evento['cupoDiarioRestante']
+        self.cantidadExtraccionesHechas = evento['cantidadExtraccionesHechas']
+        self.monto = evento['monto']
+        self.fecha = evento['fecha']
+        self.numero= evento['numero']
+        self.saldoEnCuenta = evento['saldoEnCuenta']
+        self.totalTarjetasDeCreditoActualmente = evento['totalTarjetasDeCreditoActualmente']
+        self.totalChequerasActualmente = evento['totalChequerasActualmente']
