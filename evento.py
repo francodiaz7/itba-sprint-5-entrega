@@ -1,5 +1,5 @@
-class Evento:
-    def gestionarEventos(self, evento):
+class Evento(object):
+    def __init__(self, evento):
         self.estado = evento['estado']
         self.tipo = evento['tipo']
         self.cuentaNumero = evento['cuentaNumero']

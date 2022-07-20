@@ -1,9 +1,17 @@
-from datos_tipo_cliente.cliente import Cliente
-from datos_tipo_cliente.cuenta import Cuenta
 
-class ClienteBlack(Cliente):
-    def __init__(self, **cliente):
-        Cliente.__init__(**cliente)
+class ClienteBlack():
+    def __init__(self,cliente):
+        self.nombre = cliente['nombre']
+        self.apellido = cliente['apellido']
+        self.numero = cliente['numero']
+        self.dni = cliente['dni']
+        self.direccion = cliente['direccion']
+        self.limite_extraccion_diario = 100000
+        self.limite_transferencia_recibida = 900000**100
+        self.costo_transferencias =0
+        self.saldo_descubierto_disponible =0
+        self.total_tarjetas_credito =5
+        self.total_chequeras =2
 
     def puedeCrearChequera(self):
         return True

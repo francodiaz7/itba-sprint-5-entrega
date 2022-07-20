@@ -1,8 +1,8 @@
-from Razon import Razon
+
 from datos_tipo_cliente.cliente import Cliente
 from evento import Evento
 
-class RazonTransferenciaEnviada(Razon):
+class RazonTransferenciaEnviada():
    def resolver(self, cliente:Cliente,evento:Evento) -> str:
        if evento.monto>evento.saldoEnCuenta:
            return "El monto a enviar es menor al saldo en cuenta disponible"

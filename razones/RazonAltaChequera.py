@@ -1,13 +1,15 @@
-from Razon import Razon
+
 from datos_tipo_cliente.cliente import Cliente
 from evento import Evento
 
-class RazonAltaChequera(Razon):
+class RazonAltaChequera():
+    def __init__(self) -> None:
+        pass
     def resolver(self,cliente:Cliente,evento:Evento)-> str:
-        if not cliente.puede_crear_chequera():
+        if not cliente.puedeCrearChequera():
             return "Tipo de cliente sin acceso a chequeras"
         
-        if cliente.cuenta.total_chequeras<(evento.totalChequerasActualemente+1):
+        if cliente.total_chequeras<(evento.totalChequerasActualmente+1):
             return "Tiene el maximo de cheuqueras permitidas"
         
         return "No se pudo determinar la causa de rechazo"

@@ -1,47 +1,37 @@
-from datos_tipo_cliente.cliente import Cliente
-
 
 class ProcesadorHtml:
 
-    def __init__(self) -> None:
-        self.elementos = []
-
-    def append(self, elemento:dict):
-        self.elementos.append(elemento)
-
-    def crear_html(self, cliente: Cliente):
-        transacciones = ""
-        for e in self.elementos:
-            transacciones += "<br><td>{fecha}</td><td>{tipo}</td><td>{estado}</td><td>{monto}</td><td>{razon}</td>".format(
-            fecha = e['fecha'],
-            tipo = e['tipo'].replace("_", " "),
-            estado = e['estado'],
-            monto = e['monto'],
-            razon = e['razon']
-            )
-        html = """
-            <html>
+    def __init__(self,cliente_json) -> None:
+        elemento=cliente_json["direccion"]
+        calle=elemento["calle"]
+        numero=elemento["numero"]
+        cuidad=elemento["ciudad"]
+        provincia=elemento["provincia"]
+        pais=elemento["pais"]
+        
+        self.texto_html =f'''<html>
                 <title>Listado de transacciones</title>
                 <body>
-                    <h1>{apellido}, {nombre}</h1>
-                    <div>Número cliente: {numero}</div>
-                    <div>DNI: {dni}</div>
-                    <div>Dirección: {direccion}</div>
+                    <h1>{cliente_json['apellido']}, {cliente_json['nombre']}</h1>
+                    <div>Número cliente: {cliente_json['numero']}</div>
+                    <div>DNI: {cliente_json['dni']}</div>
+                    <div>Dirección: Calle: {calle}, nro: {numero} - Ciudad: {cuidad} - {provincia}, {pais}</div>
                     <table>
-                        <tr><td>Fecha</td><td>Tipo</td><td>Estado</td><td>Monto></td><td>Razon</td></tr>
-                        {ftransacciones}
+                        <tr><td>Fecha</td><td>Tipo</td><td>Estado</td><td>Monto</td><td>Razon</td></tr>
+                    '''
+    def escribir_html_rechazo(self,transaccion,razon):
+        self.texto_html=self.texto_html+f'''<tr></tr>'''
+        self.texto_html=self.texto_html+f'''<tr><td>{transaccion['fecha']} -</td><td> {transaccion['tipo']} -</td><td> {transaccion['estado']} -</td><td> {transaccion['monto']} -</td><td> {razon} </td></tr>'''
+        self.texto_html=self.texto_html+f'''<tr></tr>'''
+    
+    def escribir_html_aceptacion(self,transaccion):
+        self.texto_html=self.texto_html+f'''<tr></tr>'''
+        self.texto_html=self.texto_html+f'''<tr><td>{transaccion['fecha']} -</td><td> {transaccion['tipo']} -</td><td> {transaccion['estado']} -</td><td> {transaccion['monto']} -</td><td> -   -   - </td></tr>'''
+        self.texto_html=self.texto_html+f'''<tr></tr>'''   
+        
+        
+    def cerrar_html(self):
+        self.texto_html= self.texto_html+f'''
                     </table>
                 </body>
-            </html>
-            """.format(
-                    direccion = str(cliente.direccion),
-                    numero = cliente.numero,
-                    nombre = cliente.nombre,
-                    apellido = cliente.apellido, 
-                    dni = cliente.dni,
-                    ftransacciones = transacciones
-                    )
-
-        archivo = open("index.html", "w")
-        archivo.write(html)
-        archivo.close()
+            </html>'''
