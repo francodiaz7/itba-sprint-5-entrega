@@ -1,10 +1,19 @@
-from datos_tipo_cliente.cliente import Cliente
-from datos_tipo_cliente.cuenta import Cuenta
 
-#Deriva de la clase Cliente
-class ClienteClassic(Cliente):
-    def __init__(self, **cliente):
-        Cliente.__init__(**cliente)
+
+class ClienteClassic():
+    def __init__(self,cliente):
+        self.nombre = cliente['nombre']
+        self.apellido = cliente['apellido']
+        self.numero = cliente['numero']
+        self.dni = cliente['dni']
+        self.direccion = cliente['direccion']
+        self.limite_extraccion_diario = 10000
+        self.limite_transferencia_recibida = 150000
+        self.costo_transferencias = 0.1
+        self.saldo_descubierto_disponible =0
+        self.total_tarjetas_credito =0
+        self.total_chequeras =0
+    
 
     def puedeCrearChequera(self):
         return False
@@ -24,3 +33,4 @@ class ClienteClassic(Cliente):
     def autorizacionTransferencia(self):
         return True
 
+   

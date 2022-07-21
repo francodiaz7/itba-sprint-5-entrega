@@ -1,11 +1,8 @@
 from datos_tipo_cliente.direccion import Direccion
 from datos_tipo_cliente.cuenta import Cuenta
 class Cliente(object):
-    #El doble asterisco (**, **kwargs) se usa cuando no conoces la cantidad de 
-    # argumentos que vas a pasar o si son varios. Recibe un diccionario
-    # de argumentos.
-    def __init__(self, **cuenta):
-        self.cuenta = Cuenta(**cuenta)
+    def __init__(self,cuenta):
+        self.cuenta = Cuenta(cuenta)
     
     def gestionarDatos(self, datos):
         self.nombre = datos['nombre']
